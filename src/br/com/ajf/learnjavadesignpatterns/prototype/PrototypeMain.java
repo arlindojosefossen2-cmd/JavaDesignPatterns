@@ -7,7 +7,7 @@ public final class PrototypeMain
 
 	}
 
-	public static void main(String[] args)
+	public static void main(String[] args) throws CloneNotSupportedException
 	{
 		System.out.println("Learn Jave Design Patterns");
 		System.out.println("Prototype");

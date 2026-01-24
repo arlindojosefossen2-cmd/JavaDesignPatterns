@@ -12,7 +12,7 @@ public final class ShapeCache
 
 	}
 
-	public static Shape getShape(int shapeId)
+	public static Shape getShape(int shapeId) throws CloneNotSupportedException
 	{
 		return (Shape) shapeMap.get(shapeId).clone();
 	}
@@ -20,18 +20,18 @@ public final class ShapeCache
 	public static void loadShapeCache()
 	{
 		Shape shape = new Circle();
-		shape.setId(0);
+		shape.id = (0);
 
-		shapeMap.put(shape.getId(),shape);
+		shapeMap.put(shape.id,shape);
 
 		shape = new Square();
-		shape.setId(1);
+		shape.id = 1;
 
-		shapeMap.put(shape.getId(),shape);
+		shapeMap.put(shape.id,shape);
 
 		shape = new Rectangle();
-		shape.setId(2);
+		shape.id = 2;
 
-		shapeMap.put(shape.getId(),shape);
+		shapeMap.put(shape.id,shape);
 	}
 }

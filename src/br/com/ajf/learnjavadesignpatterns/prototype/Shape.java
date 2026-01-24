@@ -6,8 +6,8 @@ public abstract class Shape implements Cloneable
 	protected static final int SQUARE = 1;
 	protected static final int RECTANGLE = 2;
 
-	private int id;
-	private int type;
+	public int id;
+	public final int type;
 
 	public Shape(int type)
 	{
@@ -16,34 +16,9 @@ public abstract class Shape implements Cloneable
 
 	abstract void draw();
 
-	public int getId()
-	{
-		return id;
-	}
-
-	public void setId(int id)
-	{
-		this.id = id;
-	}
-
-	public int getType()
-	{
-		return type;
-	}
-
 	@Override
-	protected Object clone()
+	protected Object clone() throws CloneNotSupportedException
 	{
-		Object clone = null;
-
-		try
-		{
-			clone = super.clone();
-		}
-		catch (CloneNotSupportedException ee)
-		{
-			ee.printStackTrace();
-		}
-		return clone;
+		return super.clone();
 	}
 }

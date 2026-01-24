@@ -5,7 +5,7 @@ import java.util.List;
 
 public final class Meal
 {
-	private List<Item> items = new ArrayList<>();
+	private final List<Item> items = new ArrayList<>();
 
 	public void addItem(Item item)
 	{
@@ -30,15 +30,15 @@ public final class Meal
 	@Override
 	public String toString()
 	{
-		String items = "";
+		StringBuilder items = new StringBuilder();
 
 		for (Item item : this.items)
 		{
-			items += "Item: "+item.name()+" , Packing: "+item.packing().pack()+" , price: "+item.price()+"\n";
+			items.append("Item: ").append(item.name()).append(" , Packing: ").append(item.packing().pack()).append(" , price: ").append(item.price()).append("\n");
 		}
 
-		items += "Total Cost: "+getCost();
+		items.append("Total Cost: ").append(getCost());
 
-		return items;
+		return items.toString();
 	}
 }

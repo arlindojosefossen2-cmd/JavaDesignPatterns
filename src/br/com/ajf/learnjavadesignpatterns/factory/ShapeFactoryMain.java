@@ -15,22 +15,22 @@ public final class ShapeFactoryMain
 		ShapeFactory factory = new ShapeFactory();
 
 		Circle circle = (Circle) factory.getShape(ShapeFactory.CIRCLE);
-		circle.setRadium(32);
-		circle.setX(28);
-		circle.setY(48);
+		circle.radium = 32;
+		circle.x = 48;
+		circle.y = 48;
 		circle.draw();
 
 		Square square = (Square) factory.getShape(ShapeFactory.SQUARE);
-		square.setSize(64);
-		square.setX(21);
-		square.setY(86);
+		square.size = 64;
+		square.x = 64;
+		square.y = 86;
 		square.draw();
 
 		Rectangle rectangle = (Rectangle) factory.getShape(ShapeFactory.RECTANGLE);
-		rectangle.setWidth(48);
-		rectangle.setHeight(64);
-		rectangle.setX(29);
-		rectangle.setY(96);
+		rectangle.width = 48;
+		rectangle.height = 64;
+		rectangle.x = 29;
+		rectangle.y = 96;
 		rectangle.draw();
 	}
 }
