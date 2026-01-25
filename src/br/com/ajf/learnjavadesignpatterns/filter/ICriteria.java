@@ -1,0 +1,8 @@
+package br.com.ajf.learnjavadesignpatterns.filter;
+
+import java.util.List;
+
+public interface ICriteria
+{
+	List<Person> meetCriteria(List<Person> persons);
+}
