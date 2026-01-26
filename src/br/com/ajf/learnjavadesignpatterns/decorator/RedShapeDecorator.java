@@ -11,11 +11,11 @@ public final class RedShapeDecorator extends ShapeDecorator
 	public void draw()
 	{
 		super.draw();
-		setRedBorder(decoratorShape);
+		setRedBorder();
 	}
 
-	private void setRedBorder(Shape decoratorShape)
+	private void setRedBorder()
 	{
-		System.out.println("Shape border red");
+		System.out.println("Red Border");
 	}
 }
