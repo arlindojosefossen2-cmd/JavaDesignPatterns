@@ -1,0 +1,38 @@
+@startuml
+class br.com.ajf.learnjavadesignpatterns.decorator.DecoratorMain {
+- <<Create>> DecoratorMain()
++ {static} void main(String[])
+}
+
+abstract class br.com.ajf.learnjavadesignpatterns.decorator.ShapeDecorator {
+# Shape decoratorShape
++ <<Create>> ShapeDecorator(Shape)
++ void draw()
+}
+
+
+class br.com.ajf.learnjavadesignpatterns.decorator.RedShapeDecorator {
++ <<Create>> RedShapeDecorator(Shape)
++ void draw()
+- void setRedBorder(Shape)
+}
+
+class br.com.ajf.learnjavadesignpatterns.decorator.Rectangle {
++ void draw()
+}
+
+class br.com.ajf.learnjavadesignpatterns.decorator.Circle {
++ void draw()
+}
+
+interface br.com.ajf.learnjavadesignpatterns.decorator.Shape {
+~ void draw()
+}
+
+
+
+br.com.ajf.learnjavadesignpatterns.decorator.Shape <|.. br.com.ajf.learnjavadesignpatterns.decorator.ShapeDecorator
+br.com.ajf.learnjavadesignpatterns.decorator.ShapeDecorator <|-- br.com.ajf.learnjavadesignpatterns.decorator.RedShapeDecorator
+br.com.ajf.learnjavadesignpatterns.decorator.Shape <|.. br.com.ajf.learnjavadesignpatterns.decorator.Rectangle
+br.com.ajf.learnjavadesignpatterns.decorator.Shape <|.. br.com.ajf.learnjavadesignpatterns.decorator.Circle
+@enduml

@@ -1,0 +1,30 @@
+@startuml
+class br.com.ajf.learnjavadesignpatterns.composite.EmployeeCEO {
+- List<Employee> subordinates
++ <<Create>> EmployeeCEO(String,String,float)
++ void addSubordinates(Employee)
++ List<Employee> getSubordinates()
++ String toString()
+}
+
+
+class br.com.ajf.learnjavadesignpatterns.composite.CompositeMain {
++ {static} void main(String[])
+}
+
+class br.com.ajf.learnjavadesignpatterns.composite.Employee {
+- String name
+- String department
+- float salary
++ <<Create>> Employee(String,String,float)
++ String toString()
++ String getDepartment()
++ float getSalary()
++ String getName()
+}
+
+
+
+
+br.com.ajf.learnjavadesignpatterns.composite.Employee <|-- br.com.ajf.learnjavadesignpatterns.composite.EmployeeCEO
+@enduml
