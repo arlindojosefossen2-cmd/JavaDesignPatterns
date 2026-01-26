@@ -1,0 +1,96 @@
+@startuml
+class br.com.ajf.learnjavadesignpatterns.factory.ShapeFactoryMain {
+- <<Create>> ShapeFactoryMain()
++ {static} void main(String[])
+}
+
+class br.com.ajf.learnjavadesignpatterns.factory.Green {
++ void fill()
+}
+
+class br.com.ajf.learnjavadesignpatterns.factory.Square {
++ float x
++ float y
++ float size
++ <<Create>> Square()
++ void draw()
++ String toString()
+}
+
+
+class br.com.ajf.learnjavadesignpatterns.factory.Red {
++ void fill()
+}
+
+class br.com.ajf.learnjavadesignpatterns.factory.Blue {
++ void fill()
+}
+
+interface br.com.ajf.learnjavadesignpatterns.factory.Color {
+~ void fill()
+}
+
+class br.com.ajf.learnjavadesignpatterns.factory.ShapeFactory {
++ {static} int CIRCLE
++ {static} int SQUARE
++ {static} int RECTANGLE
++ Shape getShape(int)
++ Color getColor(int)
+}
+
+
+class br.com.ajf.learnjavadesignpatterns.factory.Circle {
++ float x
++ float y
++ float radium
++ <<Create>> Circle()
++ void draw()
++ String toString()
+}
+
+
+class br.com.ajf.learnjavadesignpatterns.factory.EmptyShape {
++ void draw()
+}
+
+class br.com.ajf.learnjavadesignpatterns.factory.ColorFactory {
++ {static} int RED
++ {static} int BLUE
++ {static} int GREEN
++ Shape getShape(int)
++ Color getColor(int)
+}
+
+
+class br.com.ajf.learnjavadesignpatterns.factory.Rectangle {
++ float x
++ float y
++ float width
++ float height
++ <<Create>> Rectangle()
++ void draw()
++ String toString()
+}
+
+
+interface br.com.ajf.learnjavadesignpatterns.factory.Shape {
+~ void draw()
+}
+
+class br.com.ajf.learnjavadesignpatterns.factory.White {
++ void fill()
+}
+
+
+
+br.com.ajf.learnjavadesignpatterns.factory.Color <|.. br.com.ajf.learnjavadesignpatterns.factory.Green
+br.com.ajf.learnjavadesignpatterns.factory.Shape <|.. br.com.ajf.learnjavadesignpatterns.factory.Square
+br.com.ajf.learnjavadesignpatterns.factory.Color <|.. br.com.ajf.learnjavadesignpatterns.factory.Red
+br.com.ajf.learnjavadesignpatterns.factory.Color <|.. br.com.ajf.learnjavadesignpatterns.factory.Blue
+br.com.ajf.learnjavadesignpatterns.abstractfactory.AbstractFactory <|-- br.com.ajf.learnjavadesignpatterns.factory.ShapeFactory
+br.com.ajf.learnjavadesignpatterns.factory.Shape <|.. br.com.ajf.learnjavadesignpatterns.factory.Circle
+br.com.ajf.learnjavadesignpatterns.factory.Shape <|.. br.com.ajf.learnjavadesignpatterns.factory.EmptyShape
+br.com.ajf.learnjavadesignpatterns.abstractfactory.AbstractFactory <|-- br.com.ajf.learnjavadesignpatterns.factory.ColorFactory
+br.com.ajf.learnjavadesignpatterns.factory.Shape <|.. br.com.ajf.learnjavadesignpatterns.factory.Rectangle
+br.com.ajf.learnjavadesignpatterns.factory.Color <|.. br.com.ajf.learnjavadesignpatterns.factory.White
+@enduml

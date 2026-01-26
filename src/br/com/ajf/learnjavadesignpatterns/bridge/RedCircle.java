@@ -2,7 +2,6 @@ package br.com.ajf.learnjavadesignpatterns.bridge;
 
 public final class RedCircle implements IDraw
 {
-
 	@Override
 	public void drawCircle(float radium, float x, float y)
 	{

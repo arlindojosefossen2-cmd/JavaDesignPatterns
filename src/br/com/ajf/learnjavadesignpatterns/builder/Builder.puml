@@ -1,0 +1,78 @@
+@startuml
+class br.com.ajf.learnjavadesignpatterns.builder.Wrapper {
++ String pack()
+}
+
+class br.com.ajf.learnjavadesignpatterns.builder.MealBuilder {
++ Meal prepareVegMeal()
++ Meal prepareNonVegMeal()
+}
+
+interface br.com.ajf.learnjavadesignpatterns.builder.Item {
+~ String name()
+~ Packing packing()
+~ float price()
+}
+
+abstract class br.com.ajf.learnjavadesignpatterns.builder.Burger {
++ Packing packing()
++ {abstract}float price()
+}
+
+class br.com.ajf.learnjavadesignpatterns.builder.Coke {
++ String name()
++ float price()
+}
+
+class br.com.ajf.learnjavadesignpatterns.builder.Pepsi {
++ String name()
++ float price()
+}
+
+class br.com.ajf.learnjavadesignpatterns.builder.Meal {
+- List<Item> items
++ void addItem(Item)
++ float getCost()
++ String toString()
+}
+
+
+abstract class br.com.ajf.learnjavadesignpatterns.builder.ColdDrink {
++ Packing packing()
++ {abstract}float price()
+}
+
+interface br.com.ajf.learnjavadesignpatterns.builder.Packing {
+~ String pack()
+}
+
+class br.com.ajf.learnjavadesignpatterns.builder.VegBurger {
++ String name()
++ float price()
+}
+
+class br.com.ajf.learnjavadesignpatterns.builder.BuilderMain {
+- <<Create>> BuilderMain()
++ {static} void main(String[])
+}
+
+class br.com.ajf.learnjavadesignpatterns.builder.Bottle {
++ String pack()
+}
+
+class br.com.ajf.learnjavadesignpatterns.builder.ChickenBurger {
++ String name()
++ float price()
+}
+
+
+
+br.com.ajf.learnjavadesignpatterns.builder.Packing <|.. br.com.ajf.learnjavadesignpatterns.builder.Wrapper
+br.com.ajf.learnjavadesignpatterns.builder.Item <|.. br.com.ajf.learnjavadesignpatterns.builder.Burger
+br.com.ajf.learnjavadesignpatterns.builder.ColdDrink <|-- br.com.ajf.learnjavadesignpatterns.builder.Coke
+br.com.ajf.learnjavadesignpatterns.builder.ColdDrink <|-- br.com.ajf.learnjavadesignpatterns.builder.Pepsi
+br.com.ajf.learnjavadesignpatterns.builder.Item <|.. br.com.ajf.learnjavadesignpatterns.builder.ColdDrink
+br.com.ajf.learnjavadesignpatterns.builder.Burger <|-- br.com.ajf.learnjavadesignpatterns.builder.VegBurger
+br.com.ajf.learnjavadesignpatterns.builder.Packing <|.. br.com.ajf.learnjavadesignpatterns.builder.Bottle
+br.com.ajf.learnjavadesignpatterns.builder.Burger <|-- br.com.ajf.learnjavadesignpatterns.builder.ChickenBurger
+@enduml

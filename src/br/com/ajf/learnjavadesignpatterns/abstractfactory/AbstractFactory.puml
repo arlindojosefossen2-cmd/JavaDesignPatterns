@@ -1,0 +1,20 @@
+@startuml
+class br.com.ajf.learnjavadesignpatterns.abstractfactory.FactoryProducer {
++ {static} int SHAPE_FACTORY
++ {static} int COLOR_FACTORY
+- <<Create>> FactoryProducer()
++ {static} AbstractFactory getFactory(int)
+}
+
+
+abstract class br.com.ajf.learnjavadesignpatterns.abstractfactory.AbstractFactory {
++ {abstract}Shape getShape(int)
++ {abstract}Color getColor(int)
+}
+
+class br.com.ajf.learnjavadesignpatterns.abstractfactory.AbstractFactoryMain {
+- <<Create>> AbstractFactoryMain()
++ {static} void main(String[])
+}
+
+@enduml

@@ -1,0 +1,40 @@
+@startuml
+class br.com.ajf.learnjavadesignpatterns.bridge.RedCircle {
++ void drawCircle(float,float,float)
+}
+
+class br.com.ajf.learnjavadesignpatterns.bridge.Circle {
+- float radium
+- float x
+- float y
++ <<Create>> Circle(float,float,float,IDraw)
++ void draw()
+}
+
+
+abstract class br.com.ajf.learnjavadesignpatterns.bridge.Shape {
+# IDraw draw
+# <<Create>> Shape(IDraw)
++ {abstract}void draw()
+}
+
+
+class br.com.ajf.learnjavadesignpatterns.bridge.BridgeMain {
+- <<Create>> BridgeMain()
++ {static} void main(String[])
+}
+
+interface br.com.ajf.learnjavadesignpatterns.bridge.IDraw {
+~ void drawCircle(float,float,float)
+}
+
+class br.com.ajf.learnjavadesignpatterns.bridge.GreenCircle {
++ void drawCircle(float,float,float)
+}
+
+
+
+br.com.ajf.learnjavadesignpatterns.bridge.IDraw <|.. br.com.ajf.learnjavadesignpatterns.bridge.RedCircle
+br.com.ajf.learnjavadesignpatterns.bridge.Shape <|-- br.com.ajf.learnjavadesignpatterns.bridge.Circle
+br.com.ajf.learnjavadesignpatterns.bridge.IDraw <|.. br.com.ajf.learnjavadesignpatterns.bridge.GreenCircle
+@enduml

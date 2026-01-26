@@ -1,0 +1,59 @@
+@startuml
+class br.com.ajf.learnjavadesignpatterns.filter.FilterMain {
+- <<Create>> FilterMain()
++ {static} void main(String[])
+- {static} void printPersons(List<Person>)
+}
+
+class br.com.ajf.learnjavadesignpatterns.filter.AndCriteria {
+- ICriteria criteria
+- ICriteria otherCriteria
++ <<Create>> AndCriteria(ICriteria,ICriteria)
++ List<Person> meetCriteria(List<Person>)
+}
+
+
+interface br.com.ajf.learnjavadesignpatterns.filter.ICriteria {
+~ List<Person> meetCriteria(List<Person>)
+}
+
+class br.com.ajf.learnjavadesignpatterns.filter.CriteriaMale {
++ List<Person> meetCriteria(List<Person>)
+}
+
+class br.com.ajf.learnjavadesignpatterns.filter.OrCriteria {
+- ICriteria criteria
+- ICriteria otherCriteria
++ <<Create>> OrCriteria(ICriteria,ICriteria)
++ List<Person> meetCriteria(List<Person>)
+}
+
+
+class br.com.ajf.learnjavadesignpatterns.filter.Person {
+- String name
+- String gender
+- String maritalStatus
++ <<Create>> Person(String,String,String)
++ String getMaritalStatus()
++ String getGender()
++ String getName()
++ String toString()
+}
+
+
+class br.com.ajf.learnjavadesignpatterns.filter.CriteriaSingle {
++ List<Person> meetCriteria(List<Person>)
+}
+
+class br.com.ajf.learnjavadesignpatterns.filter.CriteriaFemale {
++ List<Person> meetCriteria(List<Person>)
+}
+
+
+
+br.com.ajf.learnjavadesignpatterns.filter.ICriteria <|.. br.com.ajf.learnjavadesignpatterns.filter.AndCriteria
+br.com.ajf.learnjavadesignpatterns.filter.ICriteria <|.. br.com.ajf.learnjavadesignpatterns.filter.CriteriaMale
+br.com.ajf.learnjavadesignpatterns.filter.ICriteria <|.. br.com.ajf.learnjavadesignpatterns.filter.OrCriteria
+br.com.ajf.learnjavadesignpatterns.filter.ICriteria <|.. br.com.ajf.learnjavadesignpatterns.filter.CriteriaSingle
+br.com.ajf.learnjavadesignpatterns.filter.ICriteria <|.. br.com.ajf.learnjavadesignpatterns.filter.CriteriaFemale
+@enduml

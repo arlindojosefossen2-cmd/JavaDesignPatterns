@@ -1,0 +1,16 @@
+@startuml
+class br.com.ajf.learnjavadesignpatterns.singleton.SingletonObject {
+- {static} SingletonObject instance
+- <<Create>> SingletonObject()
++ {static} SingletonObject getInstance()
++ void show()
++ String toString()
+}
+
+
+class br.com.ajf.learnjavadesignpatterns.singleton.SingletonMain {
+- <<Create>> SingletonMain()
++ {static} void main(String[])
+}
+
+@enduml

@@ -1,0 +1,42 @@
+@startuml
+class br.com.ajf.learnjavadesignpatterns.prototype.Circle {
+~ void draw()
+}
+
+abstract class br.com.ajf.learnjavadesignpatterns.prototype.Shape {
+# {static} int CIRCLE
+# {static} int SQUARE
+# {static} int RECTANGLE
++ int id
++ int type
+~ {abstract}void draw()
+# Object clone()
+}
+
+
+class br.com.ajf.learnjavadesignpatterns.prototype.ShapeCache {
+- {static} Map<Integer,Shape> shapeMap
++ {static} Shape getShape(int)
++ {static} void loadShapeCache()
+}
+
+
+class br.com.ajf.learnjavadesignpatterns.prototype.Square {
+~ void draw()
+}
+
+class br.com.ajf.learnjavadesignpatterns.prototype.PrototypeMain {
++ {static} void main(String[])
+}
+
+class br.com.ajf.learnjavadesignpatterns.prototype.Rectangle {
+~ void draw()
+}
+
+
+
+br.com.ajf.learnjavadesignpatterns.prototype.Shape <|-- br.com.ajf.learnjavadesignpatterns.prototype.Circle
+br.com.ajf.learnjavadesignpatterns.prototype.Cloneable <|.. br.com.ajf.learnjavadesignpatterns.prototype.Shape
+br.com.ajf.learnjavadesignpatterns.prototype.Shape <|-- br.com.ajf.learnjavadesignpatterns.prototype.Square
+br.com.ajf.learnjavadesignpatterns.prototype.Shape <|-- br.com.ajf.learnjavadesignpatterns.prototype.Rectangle
+@enduml
