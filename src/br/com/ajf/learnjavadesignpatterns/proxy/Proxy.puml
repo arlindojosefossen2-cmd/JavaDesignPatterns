@@ -1,0 +1,31 @@
+@startuml
+class br.com.ajf.learnjavadesignpatterns.proxy.ProxyImage {
+- Image image
+- String fileName
++ <<Create>> ProxyImage(String)
++ void display()
+}
+
+
+interface br.com.ajf.learnjavadesignpatterns.proxy.Image {
+~ void display()
+}
+
+class br.com.ajf.learnjavadesignpatterns.proxy.RealImage {
+- String fileName
++ <<Create>> RealImage(String)
+- void loadFromDisk(String)
++ void display()
++ String fileName()
+}
+
+
+class br.com.ajf.learnjavadesignpatterns.proxy.ProxyMain {
+- <<Create>> ProxyMain()
++ {static} void main(String[])
+}
+
+
+
+br.com.ajf.learnjavadesignpatterns.proxy.Image <|.. br.com.ajf.learnjavadesignpatterns.proxy.ProxyImage
+@enduml

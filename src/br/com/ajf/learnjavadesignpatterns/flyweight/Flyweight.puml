@@ -1,0 +1,38 @@
+@startuml
+interface br.com.ajf.learnjavadesignpatterns.flyweight.Shape {
+~ void draw()
+}
+
+class br.com.ajf.learnjavadesignpatterns.flyweight.Circle {
+- String color
+- float x
+- float y
+- float radius
++ <<Create>> Circle(String)
++ void setX(float)
++ void setY(float)
++ void setRadius(float)
++ void draw()
++ String toString()
+}
+
+
+class br.com.ajf.learnjavadesignpatterns.flyweight.FlyweightMain {
+- {static} String[] colors
+- <<Create>> FlyweightMain()
++ {static} void main(String[])
+- {static} String getRandomColor()
+- {static} float getRandom()
+}
+
+
+class br.com.ajf.learnjavadesignpatterns.flyweight.FlyweightFactory {
+- {static} Map<String,Shape> circleMap
++ {static} Circle getCircle(String)
+}
+
+
+
+
+br.com.ajf.learnjavadesignpatterns.flyweight.Shape <|.. br.com.ajf.learnjavadesignpatterns.flyweight.Circle
+@enduml

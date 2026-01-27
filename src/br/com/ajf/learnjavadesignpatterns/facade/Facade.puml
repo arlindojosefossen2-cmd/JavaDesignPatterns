@@ -1,0 +1,39 @@
+@startuml
+class br.com.ajf.learnjavadesignpatterns.facade.ShapeCreator {
+- Shape circle
+- Shape rectangle
+- Shape square
++ <<Create>> ShapeCreator()
++ void drawRectangle()
++ void drawSquare()
++ void drawCircle()
+}
+
+
+interface br.com.ajf.learnjavadesignpatterns.facade.Shape {
+~ void draw()
+}
+
+class br.com.ajf.learnjavadesignpatterns.facade.Rectangle {
++ void draw()
+}
+
+class br.com.ajf.learnjavadesignpatterns.facade.Square {
++ void draw()
+}
+
+class br.com.ajf.learnjavadesignpatterns.facade.FacadeMain {
+- <<Create>> FacadeMain()
++ {static} void main(String[])
+}
+
+class br.com.ajf.learnjavadesignpatterns.facade.Circle {
++ void draw()
+}
+
+
+
+br.com.ajf.learnjavadesignpatterns.facade.Shape <|.. br.com.ajf.learnjavadesignpatterns.facade.Rectangle
+br.com.ajf.learnjavadesignpatterns.facade.Shape <|.. br.com.ajf.learnjavadesignpatterns.facade.Square
+br.com.ajf.learnjavadesignpatterns.facade.Shape <|.. br.com.ajf.learnjavadesignpatterns.facade.Circle
+@enduml
