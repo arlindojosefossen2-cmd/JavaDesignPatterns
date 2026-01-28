@@ -1,0 +1,41 @@
+@startuml
+class br.com.ajf.learnjavadesignpatterns.chain.ConsoleLogger {
++ <<Create>> ConsoleLogger(int)
+# void write(String)
+}
+
+class br.com.ajf.learnjavadesignpatterns.chain.FileLogger {
++ <<Create>> FileLogger(int)
+# void write(String)
+}
+
+class br.com.ajf.learnjavadesignpatterns.chain.ChainMain {
+- <<Create>> ChainMain()
++ {static} void main(String[])
+- {static} AbstractLogger getChainLoggers()
+}
+
+abstract class br.com.ajf.learnjavadesignpatterns.chain.AbstractLogger {
++ {static} int INFO
++ {static} int DEBUG
++ {static} int ERROR
+# int level
+# AbstractLogger nextLogger
++ <<Create>> AbstractLogger(int)
++ void setNextLogger(AbstractLogger)
++ void loggerMessage(int,String)
+# {abstract}void write(String)
+}
+
+
+class br.com.ajf.learnjavadesignpatterns.chain.ErrorLogger {
++ <<Create>> ErrorLogger(int)
+# void write(String)
+}
+
+
+
+br.com.ajf.learnjavadesignpatterns.chain.AbstractLogger <|-- br.com.ajf.learnjavadesignpatterns.chain.ConsoleLogger
+br.com.ajf.learnjavadesignpatterns.chain.AbstractLogger <|-- br.com.ajf.learnjavadesignpatterns.chain.FileLogger
+br.com.ajf.learnjavadesignpatterns.chain.AbstractLogger <|-- br.com.ajf.learnjavadesignpatterns.chain.ErrorLogger
+@enduml
