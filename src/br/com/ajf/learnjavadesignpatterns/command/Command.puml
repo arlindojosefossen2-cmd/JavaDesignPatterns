@@ -1,0 +1,41 @@
+@startuml
+interface br.com.ajf.learnjavadesignpatterns.command.Order {
+~ void exec()
+}
+
+class br.com.ajf.learnjavadesignpatterns.command.SellStock {
+- Stock stock
++ <<Create>> SellStock(Stock)
++ void exec()
++ Stock stock()
+}
+
+
+class br.com.ajf.learnjavadesignpatterns.command.BuyStock {
+- Stock stock
++ <<Create>> BuyStock(Stock)
++ void exec()
++ Stock stock()
+}
+
+
+class br.com.ajf.learnjavadesignpatterns.command.Broker {
+- List<Order> orderList
++ void take(Order)
++ void place()
+}
+
+
+class br.com.ajf.learnjavadesignpatterns.command.CommandMain {
++ {static} void main(String[])
+}
+
+class br.com.ajf.learnjavadesignpatterns.command.Stock {
+- String name
+- int quantity
++ void buy()
++ void sell()
+}
+
+
+@enduml
