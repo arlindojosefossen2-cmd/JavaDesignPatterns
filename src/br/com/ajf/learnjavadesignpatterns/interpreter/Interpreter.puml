@@ -1,0 +1,44 @@
+@startuml
+class br.com.ajf.learnjavadesignpatterns.interpreter.TerminalExpression {
+- String data
++ <<Create>> TerminalExpression(String)
++ boolean interpret(String)
++ String toString()
+}
+
+
+class br.com.ajf.learnjavadesignpatterns.interpreter.OrExpression {
+- Expression expression1
+- Expression expression2
++ <<Create>> OrExpression(Expression,Expression)
++ boolean interpret(String)
++ String toString()
+}
+
+
+class br.com.ajf.learnjavadesignpatterns.interpreter.InterpreterMain {
+- <<Create>> InterpreterMain()
++ {static} Expression getMaleExpression(String,String)
++ {static} Expression getMarriedWomanExpression(String,String)
++ {static} void main(String[])
+}
+
+class br.com.ajf.learnjavadesignpatterns.interpreter.AndExpression {
+- Expression expression1
+- Expression expression2
++ <<Create>> AndExpression(Expression,Expression)
++ boolean interpret(String)
++ String toString()
+}
+
+
+interface br.com.ajf.learnjavadesignpatterns.interpreter.Expression {
+~ boolean interpret(String)
+}
+
+
+
+br.com.ajf.learnjavadesignpatterns.interpreter.Expression <|.. br.com.ajf.learnjavadesignpatterns.interpreter.TerminalExpression
+br.com.ajf.learnjavadesignpatterns.interpreter.Expression <|.. br.com.ajf.learnjavadesignpatterns.interpreter.OrExpression
+br.com.ajf.learnjavadesignpatterns.interpreter.Expression <|.. br.com.ajf.learnjavadesignpatterns.interpreter.AndExpression
+@enduml
