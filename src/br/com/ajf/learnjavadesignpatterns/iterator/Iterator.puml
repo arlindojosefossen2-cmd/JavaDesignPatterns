@@ -1,0 +1,34 @@
+@startuml
+interface br.com.ajf.learnjavadesignpatterns.iterator.Container {
+~ Iterator getIterator()
+}
+
+interface br.com.ajf.learnjavadesignpatterns.iterator.Iterator {
+~ boolean hasNext()
+~ Object next()
+}
+
+class br.com.ajf.learnjavadesignpatterns.iterator.IteratorMain {
+- <<Create>> IteratorMain()
++ {static} void main(String[])
+}
+
+class br.com.ajf.learnjavadesignpatterns.iterator.Repository {
+- String[] names
++ Iterator getIterator()
+}
+
+
+class br.com.ajf.learnjavadesignpatterns.iterator.Repository$IteratorRepository {
+- int index
++ boolean hasNext()
++ Object next()
+}
+
+
+
+
+br.com.ajf.learnjavadesignpatterns.iterator.Container <|.. br.com.ajf.learnjavadesignpatterns.iterator.Repository
+br.com.ajf.learnjavadesignpatterns.iterator.Repository +.. br.com.ajf.learnjavadesignpatterns.iterator.Repository$IteratorRepository
+br.com.ajf.learnjavadesignpatterns.iterator.Iterator <|.. br.com.ajf.learnjavadesignpatterns.iterator.Repository$IteratorRepository
+@enduml
