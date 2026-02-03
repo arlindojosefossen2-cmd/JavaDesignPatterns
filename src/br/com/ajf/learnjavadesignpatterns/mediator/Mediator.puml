@@ -1,0 +1,21 @@
+@startuml
+class br.com.ajf.learnjavadesignpatterns.mediator.User {
+- String name
++ <<Create>> User(String)
++ void senMessage(String)
++ String getName()
++ void setName(String)
+}
+
+
+class br.com.ajf.learnjavadesignpatterns.mediator.MediatorMain {
+- <<Create>> MediatorMain()
++ {static} void main(String[])
+}
+
+class br.com.ajf.learnjavadesignpatterns.mediator.ChatRoom {
+- <<Create>> ChatRoom()
++ {static} void showMessage(User,String)
+}
+
+@enduml
