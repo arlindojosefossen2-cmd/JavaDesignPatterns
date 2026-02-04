@@ -1,0 +1,30 @@
+@startuml
+class br.com.ajf.learnjavadesignpatterns.memento.Originator {
+- String state
++ Memento saveStateToMemento()
++ void getStateFromMemento(Memento)
++ String getState()
++ void setState(String)
+}
+
+
+class br.com.ajf.learnjavadesignpatterns.memento.CareTaker {
+- List<Memento> mementoList
++ void add(Memento)
++ Memento get(int)
+}
+
+
+class br.com.ajf.learnjavadesignpatterns.memento.MementoMain {
+- <<Create>> MementoMain()
++ {static} void main(String[])
+}
+
+class br.com.ajf.learnjavadesignpatterns.memento.Memento {
+- String state
++ <<Create>> Memento(String)
++ String getState()
+}
+
+
+@enduml
