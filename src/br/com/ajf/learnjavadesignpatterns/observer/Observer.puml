@@ -1,0 +1,44 @@
+@startuml
+abstract class br.com.ajf.learnjavadesignpatterns.observer.Observer {
+# Subject subject
++ <<Create>> Observer(Subject)
++ {abstract}void update()
+}
+
+
+class br.com.ajf.learnjavadesignpatterns.observer.BinaryObserver {
++ <<Create>> BinaryObserver(Subject)
++ void update()
+}
+
+class br.com.ajf.learnjavadesignpatterns.observer.Subject {
+- List<Observer> observerList
+- int state
++ int getState()
++ void setState(int)
+- void notifyAllObservers()
++ void attach(Observer)
+}
+
+
+class br.com.ajf.learnjavadesignpatterns.observer.HexaObserver {
++ <<Create>> HexaObserver(Subject)
++ void update()
+}
+
+class br.com.ajf.learnjavadesignpatterns.observer.OctalObserver {
++ <<Create>> OctalObserver(Subject)
++ void update()
+}
+
+class br.com.ajf.learnjavadesignpatterns.observer.ObserverMain {
+- <<Create>> ObserverMain()
++ {static} void main(String[])
+}
+
+
+
+br.com.ajf.learnjavadesignpatterns.observer.Observer <|-- br.com.ajf.learnjavadesignpatterns.observer.BinaryObserver
+br.com.ajf.learnjavadesignpatterns.observer.Observer <|-- br.com.ajf.learnjavadesignpatterns.observer.HexaObserver
+br.com.ajf.learnjavadesignpatterns.observer.Observer <|-- br.com.ajf.learnjavadesignpatterns.observer.OctalObserver
+@enduml
