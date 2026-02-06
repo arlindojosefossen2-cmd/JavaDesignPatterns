@@ -1,0 +1,33 @@
+@startuml
+class br.com.ajf.learnjavadesignpatterns.state.StartState {
++ void executeAction(Context)
++ String toString()
+}
+
+class br.com.ajf.learnjavadesignpatterns.state.StopState {
++ void executeAction(Context)
++ String toString()
+}
+
+class br.com.ajf.learnjavadesignpatterns.state.Context {
+- State state
++ <<Create>> Context()
++ void setState(State)
++ State getState()
+}
+
+
+interface br.com.ajf.learnjavadesignpatterns.state.State {
+~ void executeAction(Context)
+}
+
+class br.com.ajf.learnjavadesignpatterns.state.StateMain {
+- <<Create>> StateMain()
++ {static} void main(String[])
+}
+
+
+
+br.com.ajf.learnjavadesignpatterns.state.State <|.. br.com.ajf.learnjavadesignpatterns.state.StartState
+br.com.ajf.learnjavadesignpatterns.state.State <|.. br.com.ajf.learnjavadesignpatterns.state.StopState
+@enduml
