@@ -1,0 +1,36 @@
+@startuml
+class br.com.ajf.learnjavadesignpatterns.nullable.CustomerFactory {
++ {static} String[] names
+- <<Create>> CustomerFactory()
++ {static} AbstractCustomer getCustomer(String)
+}
+
+
+class br.com.ajf.learnjavadesignpatterns.nullable.NullCustomer {
+~ boolean isNull()
+~ String getName()
+}
+
+class br.com.ajf.learnjavadesignpatterns.nullable.RealCustomer {
++ <<Create>> RealCustomer(String)
+~ boolean isNull()
+~ String getName()
+}
+
+abstract class br.com.ajf.learnjavadesignpatterns.nullable.AbstractCustomer {
+# String name
+~ {abstract}boolean isNull()
+~ {abstract}String getName()
+}
+
+
+class br.com.ajf.learnjavadesignpatterns.nullable.NullableMain {
+- <<Create>> NullableMain()
++ {static} void main(String[])
+}
+
+
+
+br.com.ajf.learnjavadesignpatterns.nullable.AbstractCustomer <|-- br.com.ajf.learnjavadesignpatterns.nullable.NullCustomer
+br.com.ajf.learnjavadesignpatterns.nullable.AbstractCustomer <|-- br.com.ajf.learnjavadesignpatterns.nullable.RealCustomer
+@enduml
