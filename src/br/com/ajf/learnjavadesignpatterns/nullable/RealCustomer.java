@@ -2,6 +2,8 @@ package br.com.ajf.learnjavadesignpatterns.nullable;
 
 public final class RealCustomer extends AbstractCustomer
 {
+	private final String name;
+
 	public RealCustomer(String name)
 	{
 		this.name = name;
@@ -10,12 +12,12 @@ public final class RealCustomer extends AbstractCustomer
 	@Override
 	boolean isNull()
 	{
-		return name != null && !name.isBlank();
+		return false;
 	}
 
 	@Override
 	String getName()
 	{
-		return isNull() ? name : "";
+		return name;
 	}
 }

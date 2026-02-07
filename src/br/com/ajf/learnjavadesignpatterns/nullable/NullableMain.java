@@ -9,7 +9,7 @@ public final class NullableMain
 
 	public static void main(String[] args)
 	{
-		System.out.println("Learn Java Design Patterns\nNullable Object\n");
+		System.out.println("Learn Java Design Patterns\nNullable Object");
 
 		AbstractCustomer c1 = CustomerFactory.getCustomer("Ronny");
 		AbstractCustomer c2 = CustomerFactory.getCustomer("Mary");
@@ -20,12 +20,19 @@ public final class NullableMain
 
 		System.out.println("Printing Customers");
 
-		System.out.println(c2.getName());
+		if(!c2.isNull())
+		{
+			System.out.println(c2.getName());
+		}
 		System.out.println(c3.getName());
 		System.out.println(c4.getName());
 		System.out.println(c5.getName());
 
+		if(c1.isNull())
+		{
+			System.out.println(c1.getName());
+		}
+
 		System.out.println(c6.getName());
-		System.out.println(c1.getName());
 	}
 }

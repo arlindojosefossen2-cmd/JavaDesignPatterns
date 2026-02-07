@@ -5,12 +5,12 @@ public final class NullCustomer extends AbstractCustomer
 	@Override
 	boolean isNull()
 	{
-		return name == null || name.isBlank();
+		return true;
 	}
 
 	@Override
 	String getName()
 	{
-		return isNull() ? "Nullable Customer" : name;
+		return "Nullable Customer" ;
 	}
 }
