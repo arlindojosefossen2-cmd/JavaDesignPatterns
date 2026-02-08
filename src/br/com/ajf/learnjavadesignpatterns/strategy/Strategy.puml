@@ -1,0 +1,36 @@
+@startuml
+interface br.com.ajf.learnjavadesignpatterns.strategy.Strategy {
+~ int execute(int,int)
+}
+
+class br.com.ajf.learnjavadesignpatterns.strategy.AddictionStrategy {
++ int execute(int,int)
+}
+
+class br.com.ajf.learnjavadesignpatterns.strategy.StrategyContext {
+- Strategy strategy
++ <<Create>> StrategyContext(Strategy)
++ int executeStrategy(int,int)
++ Strategy strategy()
+}
+
+
+class br.com.ajf.learnjavadesignpatterns.strategy.MultiplicationStrategy {
++ int execute(int,int)
+}
+
+class br.com.ajf.learnjavadesignpatterns.strategy.SubtractionStrategy {
++ int execute(int,int)
+}
+
+class br.com.ajf.learnjavadesignpatterns.strategy.StrategyMain {
+- <<Create>> StrategyMain()
++ {static} void main(String[])
+}
+
+
+
+br.com.ajf.learnjavadesignpatterns.strategy.Strategy <|.. br.com.ajf.learnjavadesignpatterns.strategy.AddictionStrategy
+br.com.ajf.learnjavadesignpatterns.strategy.Strategy <|.. br.com.ajf.learnjavadesignpatterns.strategy.MultiplicationStrategy
+br.com.ajf.learnjavadesignpatterns.strategy.Strategy <|.. br.com.ajf.learnjavadesignpatterns.strategy.SubtractionStrategy
+@enduml
