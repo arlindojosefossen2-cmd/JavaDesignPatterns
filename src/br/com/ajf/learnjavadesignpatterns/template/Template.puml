@@ -1,0 +1,35 @@
+@startuml
+class br.com.ajf.learnjavadesignpatterns.template.Cricket {
++ void start()
++ void update()
++ void render()
+}
+
+abstract class br.com.ajf.learnjavadesignpatterns.template.AbstractGame {
++ void display()
+}
+
+class br.com.ajf.learnjavadesignpatterns.template.Football {
++ void start()
++ void update()
++ void render()
+}
+
+interface br.com.ajf.learnjavadesignpatterns.template.Game {
+~ void start()
+~ void update()
+~ void render()
+~ void display()
+}
+
+class br.com.ajf.learnjavadesignpatterns.template.TemplateMain {
+- <<Create>> TemplateMain()
++ {static} void main(String[])
+}
+
+
+
+br.com.ajf.learnjavadesignpatterns.template.AbstractGame <|-- br.com.ajf.learnjavadesignpatterns.template.Cricket
+br.com.ajf.learnjavadesignpatterns.template.Game <|.. br.com.ajf.learnjavadesignpatterns.template.AbstractGame
+br.com.ajf.learnjavadesignpatterns.template.AbstractGame <|-- br.com.ajf.learnjavadesignpatterns.template.Football
+@enduml
