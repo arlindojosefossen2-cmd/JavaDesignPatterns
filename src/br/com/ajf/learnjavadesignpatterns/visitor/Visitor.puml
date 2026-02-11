@@ -1,0 +1,51 @@
+@startuml
+interface br.com.ajf.learnjavadesignpatterns.visitor.ComputerPartVisitor {
+~ void visit(Computer)
+~ void visit(Monitor)
+~ void visit(KeyBoard)
+~ void visit(Mouse)
+}
+
+class br.com.ajf.learnjavadesignpatterns.visitor.KeyBoard {
++ void accept(ComputerPartVisitor)
+}
+
+class br.com.ajf.learnjavadesignpatterns.visitor.Computer {
+- ComputerPart[] parts
++ <<Create>> Computer()
++ void accept(ComputerPartVisitor)
+}
+
+
+class br.com.ajf.learnjavadesignpatterns.visitor.ComputerPartDisplayVisitor {
++ void visit(Computer)
++ void visit(Monitor)
++ void visit(KeyBoard)
++ void visit(Mouse)
+}
+
+class br.com.ajf.learnjavadesignpatterns.visitor.Mouse {
++ void accept(ComputerPartVisitor)
+}
+
+interface br.com.ajf.learnjavadesignpatterns.visitor.ComputerPart {
+~ void accept(ComputerPartVisitor)
+}
+
+class br.com.ajf.learnjavadesignpatterns.visitor.Monitor {
++ void accept(ComputerPartVisitor)
+}
+
+class br.com.ajf.learnjavadesignpatterns.visitor.VisitorMain {
+- <<Create>> VisitorMain()
++ {static} void main(String[])
+}
+
+
+
+br.com.ajf.learnjavadesignpatterns.visitor.ComputerPart <|.. br.com.ajf.learnjavadesignpatterns.visitor.KeyBoard
+br.com.ajf.learnjavadesignpatterns.visitor.ComputerPart <|.. br.com.ajf.learnjavadesignpatterns.visitor.Computer
+br.com.ajf.learnjavadesignpatterns.visitor.ComputerPartVisitor <|.. br.com.ajf.learnjavadesignpatterns.visitor.ComputerPartDisplayVisitor
+br.com.ajf.learnjavadesignpatterns.visitor.ComputerPart <|.. br.com.ajf.learnjavadesignpatterns.visitor.Mouse
+br.com.ajf.learnjavadesignpatterns.visitor.ComputerPart <|.. br.com.ajf.learnjavadesignpatterns.visitor.Monitor
+@enduml
