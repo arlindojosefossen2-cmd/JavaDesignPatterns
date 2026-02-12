@@ -1,0 +1,29 @@
+@startuml
+class br.com.ajf.learnjavadesignpatterns.mvc.StudentController {
+~ Student student
+~ StudentView view
++ <<Create>> StudentController(Student,StudentView)
++ void updateStudent()
+}
+
+
+class br.com.ajf.learnjavadesignpatterns.mvc.Student {
+- String name
+- String ra
++ <<Create>> Student(String,String)
++ String toString()
++ String ra()
++ String name()
+}
+
+
+class br.com.ajf.learnjavadesignpatterns.mvc.MvcMain {
+- <<Create>> MvcMain()
++ {static} void main(String[])
+}
+
+class br.com.ajf.learnjavadesignpatterns.mvc.StudentView {
++ void printStudent(Student)
+}
+
+@enduml
