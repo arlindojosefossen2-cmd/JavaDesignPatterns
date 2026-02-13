@@ -6,8 +6,7 @@ public final class Delegate
 
 	public Delegate(String type)
 	{
-		final Lookup lookup = new Lookup();
-		this.service = lookup.getService(type);
+		this.service = new Lookup().getService(type);
 	}
 
 	public void task()
