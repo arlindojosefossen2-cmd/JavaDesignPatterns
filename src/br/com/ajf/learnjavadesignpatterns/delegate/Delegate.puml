@@ -1,0 +1,42 @@
+@startuml
+interface br.com.ajf.learnjavadesignpatterns.delegate.Service {
+~ void processing()
+}
+
+class br.com.ajf.learnjavadesignpatterns.delegate.Delegate {
+- Service service
++ <<Create>> Delegate(String)
++ void task()
+}
+
+
+class br.com.ajf.learnjavadesignpatterns.delegate.DelegateMain {
+- <<Create>> DelegateMain()
++ {static} void main(String[])
+}
+
+class br.com.ajf.learnjavadesignpatterns.delegate.JMSService {
++ void processing()
+}
+
+class br.com.ajf.learnjavadesignpatterns.delegate.Client {
+- Delegate delegate
++ <<Create>> Client(Delegate)
++ void task()
++ Delegate delegate()
+}
+
+
+class br.com.ajf.learnjavadesignpatterns.delegate.Lookup {
++ Service getService(String)
+}
+
+class br.com.ajf.learnjavadesignpatterns.delegate.EJBService {
++ void processing()
+}
+
+
+
+br.com.ajf.learnjavadesignpatterns.delegate.Service <|.. br.com.ajf.learnjavadesignpatterns.delegate.JMSService
+br.com.ajf.learnjavadesignpatterns.delegate.Service <|.. br.com.ajf.learnjavadesignpatterns.delegate.EJBService
+@enduml
