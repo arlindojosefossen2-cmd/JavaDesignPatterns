@@ -1,0 +1,43 @@
+@startuml
+class br.com.ajf.learnjavadesignpatterns.composite.entity.CompositeEntityMain {
+- <<Create>> CompositeEntityMain()
++ {static} void main(String[])
+}
+
+class br.com.ajf.learnjavadesignpatterns.composite.entity.Client {
+- CompositeEntity compositeEntity
++ void printData()
++ void setData(String,String)
+}
+
+
+class br.com.ajf.learnjavadesignpatterns.composite.entity.CoarseGrainedObject {
+- DependentObject1 obj1
+- DependentObject2 obj2
++ void setData(String,String)
++ String[] getData()
+}
+
+
+class br.com.ajf.learnjavadesignpatterns.composite.entity.DependentObject1 {
+- String data
++ String getData()
++ void setData(String)
+}
+
+
+class br.com.ajf.learnjavadesignpatterns.composite.entity.CompositeEntity {
+- CoarseGrainedObject coarseGrainedObject
++ void setData(String,String)
++ String[] getData()
+}
+
+
+class br.com.ajf.learnjavadesignpatterns.composite.entity.DependentObject2 {
+- String data
++ String getData()
++ void setData(String)
+}
+
+
+@enduml
