@@ -1,0 +1,38 @@
+@startuml
+class br.com.ajf.learnjavadesignpatterns.dataaccess.StudentDapImpl {
+- List<Student> students
++ List<Student> getStudents()
++ Student getStudent(int)
++ void addStudent(Student)
++ void update(Student)
++ void delete(Student)
+}
+
+
+class br.com.ajf.learnjavadesignpatterns.dataaccess.Student {
+- String name
+- int id
++ <<Create>> Student(int,String)
++ String getName()
++ void setName(String)
++ int getId()
+}
+
+
+class br.com.ajf.learnjavadesignpatterns.dataaccess.MainDao {
+- <<Create>> MainDao()
++ {static} void main(String[])
+}
+
+interface br.com.ajf.learnjavadesignpatterns.dataaccess.StudentDao {
+~ List<Student> getStudents()
+~ Student getStudent(int)
+~ void addStudent(Student)
+~ void update(Student)
+~ void delete(Student)
+}
+
+
+
+br.com.ajf.learnjavadesignpatterns.dataaccess.StudentDao <|.. br.com.ajf.learnjavadesignpatterns.dataaccess.StudentDapImpl
+@enduml
