@@ -1,0 +1,41 @@
+@startuml
+interface br.com.ajf.learnjavadesignpatterns.frontcontroller.ShowInfo {
+~ void show()
+}
+
+class br.com.ajf.learnjavadesignpatterns.frontcontroller.Dispatcher {
+- String request
+- ShowInfo showInfo
++ <<Create>> Dispatcher(String)
++ void dispatch()
++ String getRequest()
+}
+
+
+class br.com.ajf.learnjavadesignpatterns.frontcontroller.HomeView {
++ void show()
+}
+
+class br.com.ajf.learnjavadesignpatterns.frontcontroller.FrontController {
+- Dispatcher dispatcher
++ <<Create>> FrontController(String)
+- boolean isAuthenticUser()
++ void trackRequest(String)
++ void dispatchRequest()
+}
+
+
+class br.com.ajf.learnjavadesignpatterns.frontcontroller.StudentView {
++ void show()
+}
+
+class br.com.ajf.learnjavadesignpatterns.frontcontroller.FrontControllerMain {
+- <<Create>> FrontControllerMain()
++ {static} void main(String[])
+}
+
+
+
+br.com.ajf.learnjavadesignpatterns.frontcontroller.ShowInfo <|.. br.com.ajf.learnjavadesignpatterns.frontcontroller.HomeView
+br.com.ajf.learnjavadesignpatterns.frontcontroller.ShowInfo <|.. br.com.ajf.learnjavadesignpatterns.frontcontroller.StudentView
+@enduml
