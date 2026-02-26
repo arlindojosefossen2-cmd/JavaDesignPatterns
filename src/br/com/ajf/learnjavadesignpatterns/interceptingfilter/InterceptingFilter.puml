@@ -1,0 +1,52 @@
+@startuml
+class br.com.ajf.learnjavadesignpatterns.interceptingfilter.InterceptingMain {
+- <<Create>> InterceptingMain()
++ {static} void main(String[])
+}
+
+class br.com.ajf.learnjavadesignpatterns.interceptingfilter.DebugFilter {
++ void execute(String)
+}
+
+class br.com.ajf.learnjavadesignpatterns.interceptingfilter.AuthenticationFilter {
++ void execute(String)
+}
+
+class br.com.ajf.learnjavadesignpatterns.interceptingfilter.Client {
+- FilterManager filterManager
++ void setFilterManager(FilterManager)
++ void sendRequest(String)
+}
+
+
+class br.com.ajf.learnjavadesignpatterns.interceptingfilter.Target {
++ void execute(String)
+}
+
+class br.com.ajf.learnjavadesignpatterns.interceptingfilter.FilterManager {
+- FilterChain filterChain
++ <<Create>> FilterManager(Filter)
++ void filterRequest(String)
++ void setFilter(Filter)
+}
+
+
+class br.com.ajf.learnjavadesignpatterns.interceptingfilter.FilterChain {
+- List<Filter> filters
+- Filter target
++ void addFilter(Filter)
++ void execute(String)
++ void setTarget(Filter)
+}
+
+
+interface br.com.ajf.learnjavadesignpatterns.interceptingfilter.Filter {
+~ void execute(String)
+}
+
+
+
+br.com.ajf.learnjavadesignpatterns.interceptingfilter.Filter <|.. br.com.ajf.learnjavadesignpatterns.interceptingfilter.DebugFilter
+br.com.ajf.learnjavadesignpatterns.interceptingfilter.Filter <|.. br.com.ajf.learnjavadesignpatterns.interceptingfilter.AuthenticationFilter
+br.com.ajf.learnjavadesignpatterns.interceptingfilter.Filter <|.. br.com.ajf.learnjavadesignpatterns.interceptingfilter.Target
+@enduml
