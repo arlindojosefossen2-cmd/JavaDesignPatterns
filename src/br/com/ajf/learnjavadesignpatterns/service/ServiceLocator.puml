@@ -1,0 +1,43 @@
+@startuml
+class br.com.ajf.learnjavadesignpatterns.service.ServiceOne {
++ String getName()
++ void execute()
+}
+
+interface br.com.ajf.learnjavadesignpatterns.service.Service {
+~ String getName()
+~ void execute()
+}
+
+class br.com.ajf.learnjavadesignpatterns.service.ServiceTwo {
++ String getName()
++ void execute()
+}
+
+class br.com.ajf.learnjavadesignpatterns.service.ServiceLocator {
+- {static} Cache cache
++ {static} Service getService(String)
+}
+
+
+class br.com.ajf.learnjavadesignpatterns.service.InitialContext {
++ Object lookup(String)
+}
+
+class br.com.ajf.learnjavadesignpatterns.service.Cache {
+- List<Service> services
++ Service getService(String)
++ void addService(Service)
+}
+
+
+class br.com.ajf.learnjavadesignpatterns.service.ServiceMain {
+- <<Create>> ServiceMain()
++ {static} void main(String[])
+}
+
+
+
+br.com.ajf.learnjavadesignpatterns.service.Service <|.. br.com.ajf.learnjavadesignpatterns.service.ServiceOne
+br.com.ajf.learnjavadesignpatterns.service.Service <|.. br.com.ajf.learnjavadesignpatterns.service.ServiceTwo
+@enduml
