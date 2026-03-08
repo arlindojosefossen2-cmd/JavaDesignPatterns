@@ -1,0 +1,29 @@
+@startuml
+class br.com.ajf.learnjavadesignpatterns.transfer.StudentVO {
+- String name
+- int number
++ <<Create>> StudentVO(String,int)
++ void setName(String)
++ String getName()
++ int getNumber()
++ String toString()
+}
+
+
+class br.com.ajf.learnjavadesignpatterns.transfer.TransferMain {
+- <<Create>> TransferMain()
++ {static} void main(String[])
+}
+
+class br.com.ajf.learnjavadesignpatterns.transfer.StudentBO {
+- List<StudentVO> students
++ <<Create>> StudentBO()
++ void add(StudentVO)
++ void delete(StudentVO)
++ void update(StudentVO)
++ List<StudentVO> getStudents()
++ StudentVO getStudent(int)
+}
+
+
+@enduml
